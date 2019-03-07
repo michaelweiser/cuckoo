@@ -390,6 +390,28 @@ class Config(object):
             },
             "__star__": ("kvm", "machines"),
         },
+        "proxmox": {
+            "proxmox": {
+                "username": String("username"),
+                "password": String("password"),
+                "hostname": String("Hostname"),
+                "interface": String("eth1"),
+                "machines": List(String, "analysis1"),
+            },
+            "*": {
+                "__section__": "analysis1",
+                "label": String("cuckoo1"),
+                "platform": String("windows"),
+                "ip": String("192.168.122.101"),
+                "snapshot": String(required=False),
+                "interface": String(),
+                "resultserver_ip": String(),
+                "resultserver_port": Int(),
+                "tags": String(),
+                "osprofile": String(required=False),
+            },
+            "__star__": ("proxmox", "machines"),
+        },
         "memory": {
             "basic": {
                 "guest_profile": String("WinXPSP2x86"),
